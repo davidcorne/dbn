@@ -1,0 +1,60 @@
+<head>
+  <script src="DBN.js"></script>
+  <script src="json2.js"></script>
+  <script src="index.js"></script>
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body onload="index.recompile()">
+<div>
+  <textarea id="input" rows="35" cols="80" oninput="index.textChange()">
+Paper 0
+Set output 100
+Pen output
+Command Triangle x1 y1 x2 y2 x3 y3
+{
+  Line x1 y1 x2 y2
+  Line x2 y2 x3 y3
+  Line x3 y3 x1 y1
+}
+
+Command circle x y radius
+{
+    // The circle equation here is (i - x)^2 + (j - y)^2 = r^2
+    // For each pixel [i, j], check to see if (i - x)^2 + (j - y)^2 < r^2
+    Set r2 (radius * radius)
+    Set x_min (x - radius)
+    Smaller? x_min 0 { Set x_min 0}
+    Set x_max (x + radius)
+    NotSmaller? x_max 100 { Set x_max 100}
+    Set y_min (y - radius)
+    Smaller? y_min 0 { Set y_min 0}
+    Set y_max (y + radius)
+    NotSmaller? y_max 100 { Set y_max 100}
+    Repeat i x_min x_max
+    {
+        Repeat j y_min y_max
+        {
+            Set distance (((i - x) * (i - x)) + ((j - y) * (j - y)))
+            Smaller? distance r2
+            {
+              NotSmaller? (distance + 35) r2
+               {
+                Set [i j] 100
+            }}
+        }
+    }
+}
+circle 50 50 50
+circle 50 50 40
+circle 50 50 30
+circle 50 50 20
+circle 50 50 10
+  </textarea>
+  <div id="output"></div>
+</div>
+<div>
+  <div id="tokens"></div>
+  <div id="ast"></div>
+  <div id="transformed-ast"></div>
+</div>
+</body>

@@ -1,0 +1,20 @@
+#input {
+    float: left;
+}
+
+#output {
+    padding-left:6px;
+    float: left;
+}
+
+#tokens {
+    padding-left:6px;
+}
+#ast {
+    padding-left:6px;
+    float: left;
+}
+#transformed-ast {
+    padding-left:6px;
+    float: left;
+}

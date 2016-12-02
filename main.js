@@ -37,9 +37,10 @@ fs.readFile('data.dbn', 'utf8', function(error, data) {
                     console.log(error);
                 }
             }
-            fs.writeFile('data.svg', svg, errorCallback);
-            fs.writeFile('data.test', test, errorCallback);
-            fs.writeFile('data.binary', bin, errorCallback);
+			fs.mkdirSync('out');
+            fs.writeFile('out/data.svg', svg, errorCallback);
+            fs.writeFile('out/data.test', test, errorCallback);
+            fs.writeFile('out/data.binary', bin, errorCallback);
         } catch (error) {
             console.log(error.toString());
         }

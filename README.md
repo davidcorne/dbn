@@ -417,9 +417,11 @@ going to be executed whenever we use that command.
 
 To call the command, we simply type into our program: 
 
+```
 drawRect 10 10 90 90 100 
+```
 
-DBN sees the command and automatically plugs the values into the parameters in the order they were declared (x1=10, y1=10, x2=90.....) and then executes the code with those values. 
+DBN sees the command and automatically plugs the values into the parameters in the order they were declared (`x1=10`, `y1=10`, `x2=90`.....) and then executes the code with those values. 
 
 **It is important to define you commands BEFORE you ask DBN to execute them. Remember, the code is read line by line, starting from the top. If your code looks like this: 
 
@@ -441,6 +443,7 @@ DBN will hit the `drawRect` line first and go "huh?" because you haven't yet tau
 
 We can also use the commands we have created to create other commands. This is nesting commands. 
 
+```
 Command pinwheel x y size color 
 {
   drawRect (x-size) y x (y+(size/2)) color 
@@ -450,8 +453,9 @@ Command pinwheel x y size color
 }
 
 pinwheel 50 50 12 100 
+```
 
-This creates a command called "pinwheel" that uses the previous drawRect
+This creates a command called "pinwheel" that uses the previous `drawRect`
 command to place four squares in the shape of a pinwheel. All we have to do is
-give it the x & y of where we want it to go, the size of the wing, and the
+give it the `x` & `y` of where we want it to go, the size of the wing, and the
 color we want it.

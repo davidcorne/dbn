@@ -734,6 +734,21 @@ DBN.compile = function(program, outputFormat) {
 };
 
 //=============================================================================
+DBN.transformerExecute = function(body) {
+    while (body.length > 0) {
+        var node = body.shift();
+        if (!(node.name in this)) {
+            throw DBN.internalError(
+                'Ill formed AST',
+                node
+            );
+        } else {
+            this[node.name](node);
+        }
+    }
+};
+
+//=============================================================================
 DBN.SVG = {
     options: {
         width: 100,
@@ -804,19 +819,7 @@ DBN.SVG.Transformer = function(svgAST) {
         });
     }
 
-    this.execute = function(body) {
-        while (body.length > 0) {
-            var node = body.shift();
-            if (!(node.name in this)) {
-                throw DBN.internalError(
-                    'Ill formed AST',
-                    node
-                );
-            } else {
-                this[node.name](node);
-            }
-        }
-    };
+    this.execute = DBN.transformerExecute;
 };
 
 //=============================================================================
@@ -924,19 +927,7 @@ DBN.Raster.Transformer = function(bitAST) {
         this.setPoint(i, j, colour);
     };
 
-    this.execute = function(body) {
-        while (body.length > 0) {
-            var node = body.shift();
-            if (!(node.name in this)) {
-                throw DBN.internalError(
-                    'Ill formed AST',
-                    node
-                );
-            } else {
-                this[node.name](node);
-            }
-        }
-    };
+    this.execute = DBN.transformerExecute;
 }
 
 //=============================================================================

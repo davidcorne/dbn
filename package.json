@@ -9,6 +9,7 @@
     "mkdirp": "^0.5.1"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha utest.js"
+    "test": "mocha utest.js",
+    "test-watch": "mocha utest.js --watch -R min"
   }
 }

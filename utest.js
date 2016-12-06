@@ -1469,9 +1469,11 @@ describe('Raster Backend', function() {
         };
         var bitmapAST = DBN.Raster.transform(AST);
         var output = DBN.Raster.Test.generate(bitmapAST);
-        // <nnn> var fs = require('fs');
-        // <nnn> fs.writeFile('dgc.test', output, function(error) {
-        // <nnn> });
+        var data = fs.readFileSync(
+            'data/testGenerator.test',
+            'utf8'
+        );  
+        assert.strictEqual(output, data);
     });
     it('generate using the binary test generator.', function() {
         var AST = {
@@ -1487,7 +1489,6 @@ describe('Raster Backend', function() {
         };
         var bitmapAST = DBN.Raster.transform(AST);
         var output = DBN.Raster.Binary.generate(bitmapAST);
-
         var data = fs.readFileSync(
             'data/binaryTestGenerator.binary',
             'utf8'

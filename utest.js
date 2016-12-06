@@ -226,18 +226,9 @@ describe('Parsing', function() {
         var expected = {
             type: 'drawing',
             body: [
-                {
-                    name: 'background',
-                    arguments: ['0'],
-                },
-                {
-                    name: 'foreground',
-                    arguments: ['100'],
-                },
-                {
-                    name: 'line',
-                    arguments: ['0', '0', '100', '100'],
-                },
+                {name: 'background', arguments: ['0'],},
+                {name: 'foreground', arguments: ['100'],},
+                {name: 'line',       arguments: ['0', '0', '100', '100'],},
             ],
         };
 
@@ -384,10 +375,7 @@ describe('Parsing', function() {
         var expected = {
             type: 'drawing',
             body: [
-                {
-                    name: 'line',
-                    arguments: ['30', '0', '100', '70'],
-                }
+                {name: 'line', arguments: ['30', '0', '100', '70'],}
             ]
         };
         assert.astEqual(ast, expected);
@@ -550,10 +538,7 @@ describe('Parsing', function() {
         ];
         var result = DBN.parse(tokens).body;
         var expected = [
-            {
-                name: 'line',
-                arguments: ['0', '0', '50', '50'],
-            },
+            {name: 'line', arguments: ['0', '0', '50', '50'],},
         ];
         assert.bodyEqual(result, expected);
 
@@ -591,10 +576,7 @@ describe('Parsing', function() {
         ];
         var result = DBN.parse(tokens).body;
         var expected = [
-            {
-                name: 'line',
-                arguments: ['0', '0', '50', '50'],
-            },
+            {name: 'line', arguments: ['0', '0', '50', '50'],},
         ];
         assert.bodyEqual(result, expected);
 
@@ -633,10 +615,7 @@ describe('Parsing', function() {
         ];
         var result = DBN.parse(tokens).body;
         var expected = [
-            {
-                name: 'line',
-                arguments: ['0', '0', '50', '50'],
-            },
+            {name: 'line', arguments: ['0', '0', '50', '50'],},
         ];
         assert.bodyEqual(result, expected);
 
@@ -873,10 +852,7 @@ describe('Parsing', function() {
             {type: 'number', value: '5'},
         ];
         var expected = [
-            {
-                name: 'point',
-                arguments: ['50', '50', '5']
-            }
+            {name: 'point', arguments: ['50', '50', '5']}
         ];
         var result = DBN.parse(tokens).body;
         assert.bodyEqual(result, expected);
@@ -993,10 +969,7 @@ describe('Parsing', function() {
             {type: 'word',   value: 'top'},
         ]
         var expectedBody = [
-            {
-                name: 'line',
-                arguments: ['40', '65', '60', '70']
-            },
+            {name: 'line', arguments: ['40', '65', '60', '70']},
         ]
         var resultBody = DBN.parse(tokens, context).body;
         assert.bodyEqual(resultBody, expectedBody);
@@ -1020,26 +993,11 @@ Line 0 0 100 5
         var expectedAST = {
             type: 'drawing',
             body: [
-                {
-                    name: 'background',
-                    arguments: ['100']
-                },
-                {
-                    name: 'foreground',
-                    arguments: ['10']
-                },
-                {
-                    name: 'line',
-                    arguments: ['0 10 100 10']
-                },
-                {
-                    name: 'foreground',
-                    arguments: ['33']
-                },
-                {
-                    name: 'line',
-                    arguments: ['0 0 100 5']
-                },
+                {name: 'background', arguments: ['100']},
+                {name: 'foreground', arguments: ['10']},
+                {name: 'line',       arguments: ['0 10 100 10']},
+                {name: 'foreground', arguments: ['33']},
+                {name: 'line',       arguments: ['0 0 100 5']},
             ],
         };
         var result = DBN.compile(program, dummyOutput);

@@ -1,5 +1,7 @@
+#!node
 var fs = require('fs')
 var dbn = require('./DBN')
+var mkdirp = require('mkdirp');
 
 var displayOutput = true
 
@@ -37,7 +39,7 @@ fs.readFile('data.dbn', 'utf8', function(error, data) {
                     console.log(error);
                 }
             }
-			fs.mkdirSync('out');
+			mkdirp.sync('out');
             fs.writeFile('out/data.svg', svg, errorCallback);
             fs.writeFile('out/data.test', test, errorCallback);
             fs.writeFile('out/data.binary', bin, errorCallback);

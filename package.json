@@ -5,6 +5,7 @@
   },
   "dependencies": {
     "chai-fs": "^1.0.0",
-	"chai-string": "1.3.0"
+    "chai-string": "1.3.0",
+    "mkdirp": "^0.5.1"
   }
 }

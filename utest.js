@@ -974,6 +974,36 @@ describe('Parsing', function() {
         var resultBody = DBN.parse(tokens, context).body;
         assert.bodyEqual(resultBody, expectedBody);
     });
+    it('Command context bug', function() {
+        // Set length 5
+        // Command horizontal a 
+        // {
+        //   Line a 0 a length
+        // }
+        // horizontal 4
+        var tokens = [
+            {type: 'word',   value: 'Set'},
+            {type: 'word',   value: 'length'},
+            {type: 'number', value: '5'},
+            {type: 'word',   value: 'Command'},
+            {type: 'word',   value: 'horizontal'},
+            {type: 'word',   value: 'a'},
+            {type: 'symbol', value: '{'},
+            {type: 'word',   value: 'Line'},
+            {type: 'word',   value: 'a'},
+            {type: 'number', value: '0'},
+            {type: 'word',   value: 'a'},
+            {type: 'word',   value: 'length'},
+            {type: 'symbol', value: '}'},
+            {type: 'word',   value: 'horizontal'},
+            {type: 'number', value: '4'},
+        ];
+        var expectedBody = [
+            {name: 'line', arguments: ['4', '0', '4', '5']}
+        ]
+        var resultBody = DBN.parse(tokens, {}).body;
+        assert.bodyEqual(resultBody, expectedBody);
+    });
 });
 
 //=============================================================================

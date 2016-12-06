@@ -575,7 +575,7 @@ DBN.parseCommand = function(body, current, tokens, context)
         }
 
         // Copy the existing context
-        var newContext = {}// <nnn> Utilites.copy(context);
+        var newContext = Utilites.copy(context);
 
         // Add the values of the variables given in the function call to the
         // context.

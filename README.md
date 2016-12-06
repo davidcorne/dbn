@@ -4,7 +4,7 @@ This is a "compiler" for DRN which is a draw by numbers language. See [here](htt
 
 ## Specification ##
  
-This is from [here](http://dbn.media.mit.edu/info/vocabulary.html).
+The following specification is from [here](http://dbn.media.mit.edu/info/vocabulary.html), with some small edits from me.
 
 ### paper
 
@@ -26,8 +26,8 @@ paper 100
 ### pen
 
 Used to set the pen color. Default is black. Takes one parameter - a number
-between 0 and 100. 0 is white ( think 0% black) and 100 is black (100%
-black). When you use the line or dot (set) command, it renders in that
+between 0 and 100. 0 is white (think 0% black) and 100 is black (100%
+black). When you use the line command, it renders in that
 color. The color can be changed, as well. for example:
 
 ```
@@ -130,9 +130,9 @@ Set myHeight 60
 You can change the value of the variable later on (ex: as your height grows). 
 
 Think of a variable as a container that you are asking to hold something for
-you, like your jar of blue gumballs (mmm... Gumballs....). And you can change
-the value of that variable (hence the name "variable") as easily as if you
-took another gumball out of the jar.
+you, like your jar of blue gumballs. And you can change the value of that
+variable (hence the name "variable") as easily as if you took another gumball
+out of the jar.
 
 #### Why are variables significant? 
 
@@ -157,7 +157,7 @@ The Set command is also used for dots (drawing on individual pixels). The syntax
 Set [50 50] 100 
 ```
 
-This puts a dot (which has the Pen color) in the middle of the page. [50 50] is the x and y position of the dot and 100 is the color. 
+This puts a dot in the middle of the page. [50 50] is the x and y position of the dot and 100 is the color. 
 
 
 ### naming 

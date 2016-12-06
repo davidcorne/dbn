@@ -897,13 +897,13 @@ DBN.Raster.Transformer = function(bitAST) {
         var x1 = this.x(node.arguments[2]);
         var y1 = this.y(node.arguments[3]);
         
-        var dx = Math.abs(x1-x0);
-        var dy = Math.abs(y1-y0);
+        var dx = Math.abs(x1 - x0);
+        var dy = Math.abs(y1 - y0);
         var sx = (x0 < x1) ? 1 : -1;
         var sy = (y0 < y1) ? 1 : -1;
         var err = dx - dy;
 
-        while(true){
+        while(true) {
             this.setPoint(x0, y0, this.penColour);
             if ((x0==x1) && (y0==y1)) {
                 break;
@@ -950,6 +950,7 @@ DBN.Raster.transform = function(AST) {
     return bitAST;
 };
 
+//=============================================================================
 DBN.Raster.iterativeFormat = function(output) {
     return {
         output: output,

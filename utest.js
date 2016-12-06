@@ -675,10 +675,7 @@ describe('Parsing', function() {
         ];
         var result = DBN.parse(tokens).body;
         var expected = [
-            {
-                name: 'line',
-                arguments: ['0', '0', '50', '50'],
-            },
+            {name: 'line', arguments: ['0', '0', '50', '50'],},
         ];
         assert.bodyEqual(result, expected);
 
@@ -722,18 +719,9 @@ describe('Parsing', function() {
         ];
 
         var expected = [
-            {
-                name: 'point',
-                arguments: ['0', '5', '100'],
-            },
-            {
-                name: 'point',
-                arguments: ['1', '5', '100'],
-            },
-            {
-                name: 'point',
-                arguments: ['2', '5', '100'],
-            }
+            {name: 'point', arguments: ['0', '5', '100'],},
+            {name: 'point', arguments: ['1', '5', '100'],},
+            {name: 'point', arguments: ['2', '5', '100'],}
         ];
         var result = DBN.parse(tokens).body;
         assert.bodyEqual(result, expected);
@@ -755,27 +743,20 @@ describe('Parsing', function() {
         ];
 
         expected = [
-            {
-                name: 'point',
-                arguments: ['5', '5', '100'],
-            },
-            {
-                name: 'point',
-                arguments: ['4', '5', '100'],
-            },
-            {
-                name: 'point',
-                arguments: ['3', '5', '100'],
-            },
-            {
-                name: 'point',
-                arguments: ['2', '5', '100'],
-            }
+            {name: 'point', arguments: ['5', '5', '100'],},
+            {name: 'point', arguments: ['4', '5', '100'],},
+            {name: 'point', arguments: ['3', '5', '100'],},
+            {name: 'point', arguments: ['2', '5', '100'],}
         ];
         result = DBN.parse(tokens).body;
         assert.bodyEqual(result, expected);
 
         // Double repeat
+        //   Repeat i 1 3 {
+        //     Repeat j 20 22 {
+        //       Set [i j] 50
+        //     }
+        //   }
         tokens = [
             {type: 'word',   value: 'Repeat'},
             {type: 'word',   value: 'i'},
@@ -798,42 +779,15 @@ describe('Parsing', function() {
         ];
 
         expected = [
-            {
-                name: 'point',
-                arguments: ['1', '20', '50'],
-            },
-            {
-                name: 'point',
-                arguments: ['1', '21', '50'],
-            },
-            {
-                name: 'point',
-                arguments: ['1', '22', '50'],
-            },
-            {
-                name: 'point',
-                arguments: ['2', '20', '50'],
-            },
-            {
-                name: 'point',
-                arguments: ['2', '21', '50'],
-            },
-            {
-                name: 'point',
-                arguments: ['2', '22', '50'],
-            },
-            {
-                name: 'point',
-                arguments: ['3', '20', '50'],
-            },
-            {
-                name: 'point',
-                arguments: ['3', '21', '50'],
-            },
-            {
-                name: 'point',
-                arguments: ['3', '22', '50'],
-            },
+            {name: 'point', arguments: ['1', '20', '50'],},
+            {name: 'point', arguments: ['1', '21', '50'],},
+            {name: 'point', arguments: ['1', '22', '50'],},
+            {name: 'point', arguments: ['2', '20', '50'],},
+            {name: 'point', arguments: ['2', '21', '50'],},
+            {name: 'point', arguments: ['2', '22', '50'],},
+            {name: 'point', arguments: ['3', '20', '50'],},
+            {name: 'point', arguments: ['3', '21', '50'],},
+            {name: 'point', arguments: ['3', '22', '50'],},
         ];
         result = DBN.parse(tokens).body;
         assert.bodyEqual(result, expected);

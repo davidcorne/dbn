@@ -1382,8 +1382,8 @@ describe('SVG Backend', function() {
             ],
         };
         var expected = '<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">\
-	<rect x="0" y="0" width="100" height="100" fill="rgb(100%, 100%, 100%)"></rect>\
-	<line x1="0" y1="100" x2="100" y2="0" stroke="rgb(0%, 0%, 0%)" stroke-linecap="round"></line>\
+    <rect x="0" y="0" width="100" height="100" fill="rgb(100%, 100%, 100%)"></rect>\
+    <line x1="0" y1="100" x2="100" y2="0" stroke="rgb(0%, 0%, 0%)" stroke-linecap="round"></line>\
 </svg>\
 '
         var result = DBN.SVG.generate(svgAST);
@@ -1400,10 +1400,10 @@ Set [50 20] 25
 `;
         var expected = '\
 <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">\
-	<rect x="0" y="0" width="100" height="100" fill="rgb(90%, 90%, 90%)"></rect>\
-	<line x1="0" y1="100" x2="100" y2="0" stroke="rgb(50%, 50%, 50%)" stroke-linecap="round"></line>\
-	<line x1="0" y1="0" x2="100" y2="100" stroke="rgb(0%, 0%, 0%)" stroke-linecap="round"></line>\
-	<rect x="50" y="80" width="1" height="1" fill="rgb(75%, 75%, 75%)"></rect>\
+    <rect x="0" y="0" width="100" height="100" fill="rgb(90%, 90%, 90%)"></rect>\
+    <line x1="0" y1="100" x2="100" y2="0" stroke="rgb(50%, 50%, 50%)" stroke-linecap="round"></line>\
+    <line x1="0" y1="0" x2="100" y2="100" stroke="rgb(0%, 0%, 0%)" stroke-linecap="round"></line>\
+    <rect x="50" y="80" width="1" height="1" fill="rgb(75%, 75%, 75%)"></rect>\
 </svg>\
 ';
         var result = DBN.SVG.compile(program);
@@ -1476,7 +1476,7 @@ describe('Raster Backend', function() {
     it('generate using the binary test generator.', function() {
         var AST = {
             type: 'drawing',
-			area: [10, 10],
+            area: [10, 10],
             body: [
                 {name: 'background', arguments: ['0']},
                 {name: 'foreground', arguments: ['100']},
@@ -1491,7 +1491,7 @@ describe('Raster Backend', function() {
         var data = fs.readFileSync(
             'data/binaryTestGenerator.binary',
             'utf8'
-		);	
-		assert.strictEqual(output, data);
+        );  
+        assert.strictEqual(output, data);
     });
 });

@@ -2,6 +2,18 @@
 var DBN = (typeof exports == 'undefined') ? {} : exports;
 
 //=============================================================================
+var Utilites = {
+    copy: function(obj) {
+        var copy = {};
+        var keys = Object.keys(obj);
+        for (var i = 0; i < keys.length; ++i) {
+            copy[keys[i]] = obj[keys[i]];
+        }
+        return copy;
+    },
+};
+
+//=============================================================================
 DBN.Types = {
     word:   'word',
     symbol: 'symbol',
@@ -167,11 +179,7 @@ DBN.getNegativeNumber = function(token, tokens, context) {
 //=============================================================================
 DBN.getNumber = function(token, tokens, context) {
     // Gets a number type token from a number or variable.
-    var numberToken = {};
-    var keys = Object.keys(token);
-    for (var i = 0; i < keys.length; ++i) {
-        numberToken[keys[i]] = token[keys[i]];
-    }
+    var numberToken = Utilites.copy(token);
     if (token.type !== DBN.Types.number) {
         if (token.type === DBN.Types.word) {
             // see if it's a variable
@@ -567,11 +575,7 @@ DBN.parseCommand = function(body, current, tokens, context)
         }
 
         // Copy the existing context
-        var newContext = {};
-        var keys = Object.keys(context);
-        for (var i = 0; i < keys.length; ++i) {
-            newContext[keys[i]] = context[keys[i]];
-        }
+        var newContext = {}// <nnn> Utilites.copy(context);
 
         // Add the values of the variables given in the function call to the
         // context.

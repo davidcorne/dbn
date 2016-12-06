@@ -124,6 +124,18 @@ this is an invalid program
         // There should be 9 tokens;
         // Line 100 Pen 100 this is an invalid program
         assert.strictEqual(result.length, 9);
+        var expected = [
+            {value: 'Line'},
+            {value: '100'},
+            {value: 'Pen'},
+            {value: '100'},
+            {value: 'this'},
+            {value: 'is'},
+            {value: 'an'},
+            {value: 'invalid'},
+            {value: 'program'},
+        ];
+        assert.tokensEqual(result, expected);
     });
 
     it('Should lex symbols', function() {

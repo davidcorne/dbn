@@ -12,5 +12,10 @@
   "scripts": {
     "test": "standard && mocha utest.js",
     "test-watch": "mocha utest.js --watch -R min"
+  },
+  "standard": {
+    "ignore": [
+      "json2.js"
+    ]
   }
 }
